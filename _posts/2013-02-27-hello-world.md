@@ -6,6 +6,6 @@ category:
 tags: []
 ---
 
-在_github_上挂一个_静态博客_似乎是个不错的选择~
+在 _github_ 上挂一个 _静态博客_ 似乎是个不错的选择~
 
 {% include JB/setup %}
