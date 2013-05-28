@@ -21,10 +21,10 @@ body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,p,blockquote,th,t
 /* @end */
 
 body {
-	/* font-family: Palatino, georgia, "times new roman", serif; */
 	font-family: 'Sans', sans-serif;
-	background-color: whitesmoke;
-	background-position: center -18em;
+	background-color: whitesmoke; 
+	background: url(../images/bg.jpg) fixed;
+	background-position: center;
 	background-repeat: repeat-x; 
 }
 
@@ -57,7 +57,7 @@ h2 {
 }
 
 hr { 
-	border-top: 1px solid silver;
+	border-top: 1px solid grey;
 	border-bottom: none;
 	padding: 0;
 	margin: 1.46em 0 0 0;
@@ -72,7 +72,7 @@ sup { line-height: 1ex; }
 }
 
 #page, #disqus_thread {
-	background: white;
+/*	background: white; */
 /*	background-image: url(grid.png); */
 	padding: 3em 3em 1.5em 3em;
 	border: 1px solid #ccc;
@@ -115,7 +115,7 @@ sup { line-height: 1ex; }
 .right { float: right; clear: left; }
 .left { float: left; clear: right; }
 .inset { 
-	border: 1px solid silver; 
+	border: 1px solid grey; 
 	padding: 2px;
 	margin: 0em 0.8em 0.8em 0.8em;
 }
@@ -137,8 +137,8 @@ blockquote {
 .note {
 	padding-top: 0.5em; 
 	background-color: #fafaff;
-	border-top: 1px solid silver;
-	border-bottom: 1px solid silver;
+	border-top: 1px solid grey;
+	border-bottom: 1px solid grey;
 }
 /* @group Table */
 table.neat {
@@ -195,11 +195,11 @@ ul.compact li a {
 /* @end */
 
 /* @group Header */
-#header, #header a { color: silver; }
+#header, #header a { color: grey; }
 #header .hover { color: transparent; }
 #header:hover a { color: black; text-shadow: #aaa 2px 2px 3px;}
 #header:hover a:hover { text-decoration: none; }
-#header a:hover .hover { color: silver; }
+#header a:hover .hover { color: grey; }
 #header {
 	position: relative;
 	font-variant: small-caps;
@@ -236,11 +236,11 @@ ul.compact li a {
 	border-bottom: 2px solid blue;
 }
 #header .byline {
-	color: silver;
+	color: grey;
 	font-size: 10pt;
 	line-height: 75%
 }
-#header:hover .byline a { color: silver; text-shadow: none; }
+#header:hover .byline a { color: grey; text-shadow: none; }
 #header:hover .byline a:hover { color: black; text-shadow: #aaa 1px 1px 2px;}
 
 /* @group Twitter */
@@ -258,7 +258,7 @@ body#Code #header a.code,
 body#Past #header a.past,
 body#Kith #header a.kith
 { 
-	border-bottom: 2px solid silver; 
+	border-bottom: 2px solid grey; 
 }
 
 /* @end */
@@ -302,7 +302,7 @@ body#Kith #header a.kith
 .list .title { font-weight: bold; }
 p.line { position: relative; margin: 0; }
 p.excerpt { margin: 0; }
-.comments { font-size: smaller; position: absolute; color: silver; right: 0; top: 0; }
+.comments { font-size: smaller; position: absolute; color: grey; right: 0; top: 0; }
 .excerpt { color: black; }
 
 /* @group Signature */
@@ -387,8 +387,8 @@ pre > code {
 }
 .dsq-comment-header {
 	background-color: whitesmoke !important;
-	border-top: 1px solid silver !important;
-	border-bottom: 1px solid silver !important;
+	border-top: 1px solid grey !important;
+	border-bottom: 1px solid grey !important;
 	margin-bottom: 1.15em !important;
 }
 .dsq-header-time { margin-left: 0 !important; }
@@ -402,8 +402,8 @@ pre > code {
 }
 #dsq-options {
 	background: whitesmoke;
-	border-bottom: 1px solid silver;
-	border-top: 1px solid silver;
+	border-bottom: 1px solid grey;
+	border-top: 1px solid grey;
 	padding: 0 0 0 1em;
 }
 #dsq-comments-count {
@@ -412,7 +412,7 @@ pre > code {
 }
 #dsq-extra-links { padding-left: 0 !important; }
 #dsq-extra-links li img { display: none; }
-#dsq-options-toggle { color: silver; font-size: 75% !important;}
+#dsq-options-toggle { color: grey; font-size: 75% !important;}
 #dsq-add-new-comment {
 	margin-top: 1.19em !important;
 	margin-bottom: 1.25em !important;
