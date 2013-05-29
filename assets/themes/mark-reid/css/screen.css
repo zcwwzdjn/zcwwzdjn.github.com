@@ -33,10 +33,10 @@ img { -ms-interpolation-mode:bicubic; }
 
 /* IE6 ignores this and uses default size of 16pt */
 html>body { font-size:16px; }
-p { margin: 0 0 1.5em 0; text-align: justify; }
+p { margin: 0 0 1.5em 0; text-align: justify; color: #8E8E8E; }
 
-a { text-decoration: none; color: #339; }
-a:hover { text-decoration: underline; color: #33f; }
+a { text-decoration: none; color: #0066CC; }
+a:hover { text-decoration: underline; color: #0080FF; }
 a.pdf:before { 
 	margin-right: 1em;
 	content: url(/files/css/icon_pdf.gif); }
@@ -46,7 +46,8 @@ h1,h2,h3,h4 {
 	font-size:1.5em; 
 	font-weight: normal; 
 	clear: left; 	
-	font-family: 'lucida grande', sans-serif; 
+	font-family: 'Sans', sans-serif; 
+	color: silver;
 }
 h1 { margin-bottom: 1em; }
 h2 {
@@ -57,7 +58,7 @@ h2 {
 }
 
 hr { 
-	border-top: 1px solid grey;
+	border-top: 1px solid silver;
 	border-bottom: none;
 	padding: 0;
 	margin: 1.46em 0 0 0;
@@ -69,6 +70,7 @@ sup { line-height: 1ex; }
 	max-width: 46em;
 	margin: 1.5em auto 3em auto;
 	line-height:1.5em;
+	color: #E0E0E0;
 }
 
 #page, #disqus_thread {
@@ -76,6 +78,7 @@ sup { line-height: 1ex; }
 /*	background-image: url(grid.png); */
 	padding: 3em 3em 1.5em 3em;
 	border: 1px solid #ccc;
+	color: #E0E0E0;
 }
 
 /* More experimental CSS3 features */
@@ -83,9 +86,10 @@ sup { line-height: 1ex; }
 	box-shadow: 2px 2px 8px #aaa;
 	-webkit-box-shadow: 2px 2px 8px #aaa;
 	-moz-box-shadow: 2px 2px 8px #aaa;	
+	color: #E0E0E0;
 }
 
-#disqus_thread { padding-top: 0; }
+#disqus_thread { padding-top: 0; color: #E0E0E0; }
 
 /* TODO
 #page { counter-reset: section; }
@@ -115,14 +119,14 @@ sup { line-height: 1ex; }
 .right { float: right; clear: left; }
 .left { float: left; clear: right; }
 .inset { 
-	border: 1px solid grey; 
+	border: 1px solid silver; 
 	padding: 2px;
 	margin: 0em 0.8em 0.8em 0.8em;
 }
 .right.inset { margin-right: 0 !important; }
 .left.inset { margin-left: 0 !important; }
 .quiet {
-	color: grey;
+	color: silver;
 	font-size: 0.875em;
 	line-height: 1.714em;
 }
@@ -137,8 +141,8 @@ blockquote {
 .note {
 	padding-top: 0.5em; 
 	background-color: #fafaff;
-	border-top: 1px solid grey;
-	border-bottom: 1px solid grey;
+	border-top: 1px solid silver;
+	border-bottom: 1px solid silver;
 }
 /* @group Table */
 table.neat {
@@ -150,7 +154,7 @@ table.neat {
 table.neat tr { text-align: center; }
 table.neat th { font-weight: normal; background-color: #eeeeee; }
 table.neat td { background-color: white; }
-table.neat th.title { border-bottom: 1px solid gray; border-top: 1px solid gray; vertical-align: bottom; background-color: lightgrey; }
+table.neat th.title { border-bottom: 1px solid gray; border-top: 1px solid gray; vertical-align: bottom; background-color: lightsilver; }
 caption { 
 	color: #333;
 	font-size: 0.875em;
@@ -186,7 +190,7 @@ ul.compact li { list-style: ;
 }
 ul.compact li span.date {	
 	display: none;
-	color: grey;
+	color: silver;
 	width: 20%;
 }
 ul.compact li a {
@@ -195,11 +199,11 @@ ul.compact li a {
 /* @end */
 
 /* @group Header */
-#header, #header a { color: grey; }
+#header, #header a { color: silver; }
 #header .hover { color: transparent; }
-#header:hover a { color: black; text-shadow: #aaa 2px 2px 3px;}
+#header:hover a { color: silver; text-shadow: #aaa 2px 2px 3px;}
 #header:hover a:hover { text-decoration: none; }
-#header a:hover .hover { color: grey; }
+#header a:hover .hover { color: white; }
 #header {
 	position: relative;
 	font-variant: small-caps;
@@ -208,7 +212,7 @@ ul.compact li a {
 	margin-bottom: 0;
 }
 #header h1 {
-	font-family: Palatino, georgia, "times new roman", serif;
+	font-family: 'Sans', sans-serif;
 	margin-bottom: 0;
 	line-height: 0.9em;
 	display: block;
@@ -232,16 +236,16 @@ ul.compact li a {
 	display: inline;
 }
 #header ul li a:hover {
-	color: blue;
-	border-bottom: 2px solid blue;
+	color: yellow;
+	border-bottom: 2px solid yellow;
 }
 #header .byline {
-	color: grey;
+	color: silver;
 	font-size: 10pt;
 	line-height: 75%
 }
-#header:hover .byline a { color: grey; text-shadow: none; }
-#header:hover .byline a:hover { color: black; text-shadow: #aaa 1px 1px 2px;}
+#header:hover .byline a { color: silver; text-shadow: none; }
+#header:hover .byline a:hover { color: white; text-shadow: #aaa 1px 1px 2px;}
 
 /* @group Twitter */
 #twitter_update_list { display: inline; margin: 0; }
@@ -258,13 +262,13 @@ body#Code #header a.code,
 body#Past #header a.past,
 body#Kith #header a.kith
 { 
-	border-bottom: 2px solid grey; 
+	border-bottom: 2px solid silver; 
 }
 
 /* @end */
 
 /* @group Footnotes */
-.footnotes { color: grey; }
+.footnotes { color: silver; }
 .footnotes:hover { color: black; }
 .footnotes ol li {
 	list-style-type: decimal;
@@ -302,7 +306,7 @@ body#Kith #header a.kith
 .list .title { font-weight: bold; }
 p.line { position: relative; margin: 0; }
 p.excerpt { margin: 0; }
-.comments { font-size: smaller; position: absolute; color: grey; right: 0; top: 0; }
+.comments { font-size: smaller; position: absolute; color: silver; right: 0; top: 0; }
 .excerpt { color: black; }
 
 /* @group Signature */
@@ -313,7 +317,7 @@ p.excerpt { margin: 0; }
 .signature .author { 
 	font-variant: small-caps; 
 	font-style: normal; 
-	color: black;
+	color: #E0E0E0;
 	display: block;
 	margin-bottom: 1.5em;
 }
@@ -387,8 +391,8 @@ pre > code {
 }
 .dsq-comment-header {
 	background-color: whitesmoke !important;
-	border-top: 1px solid grey !important;
-	border-bottom: 1px solid grey !important;
+	border-top: 1px solid silver !important;
+	border-bottom: 1px solid silver !important;
 	margin-bottom: 1.15em !important;
 }
 .dsq-header-time { margin-left: 0 !important; }
@@ -402,8 +406,8 @@ pre > code {
 }
 #dsq-options {
 	background: whitesmoke;
-	border-bottom: 1px solid grey;
-	border-top: 1px solid grey;
+	border-bottom: 1px solid silver;
+	border-top: 1px solid silver;
 	padding: 0 0 0 1em;
 }
 #dsq-comments-count {
@@ -412,7 +416,7 @@ pre > code {
 }
 #dsq-extra-links { padding-left: 0 !important; }
 #dsq-extra-links li img { display: none; }
-#dsq-options-toggle { color: grey; font-size: 75% !important;}
+#dsq-options-toggle { color: silver; font-size: 75% !important;}
 #dsq-add-new-comment {
 	margin-top: 1.19em !important;
 	margin-bottom: 1.25em !important;
@@ -454,7 +458,7 @@ p.delicious-extended:before { content: ' — '; }
 /* @group Footer */
 #footer {
 	margin-top: 0;
-	color: grey;
+	color: silver;
 	font-size: 87.5%;
 	line-height: 1.3em;
 }
