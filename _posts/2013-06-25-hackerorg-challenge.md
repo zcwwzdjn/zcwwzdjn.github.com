@@ -66,4 +66,40 @@ end
 puts des.join("")
 {% endhighlight %}
 
+## Crypto\#The Lightest Touch
+
+     . .  .     .  ..  .  . .  .      .  .     . .  .  .. .. .  ..  .  . .  .  .. .. .  
+    .. ..  .        . .  ..  . ..    .  .     .   .     .  .  . .  .  .  .   .  .     . 
+    .              .  .   .    .        .     .  .  .. .     .     .     .     .        
+
+看得出每个单位是一个3x2的点阵。盲文。
+
+## Crypto\#Didactic Bytes
+
+让你把三个数写成8位二进制再拼起来。
+
+{% highlight ruby %}
+puts [199, 77, 202].collect { |x| "%08d" % x.to_s(2).to_i }.join("").to_i(2)
+{% endhighlight %}
+
+## Crypto\#Substitute Teacher
+
+    ISS NVVK DIPXYWA PIT AVSUY QIAOP PWZEHVNWIEDZ. CDYT ZVM LOTK HDY AVSMHOVT HV HDOA HYFH,
+	ZVM COSS QY IQSY HV NYH HDY ITACYW, CDOPD OA IKMGQWIHY.
+
+先以为是维吉尼亚密码，然后各种找关键词，无果。后来根据题目名称想到替换密码，果断从ZVM还有HDY等入手。还有一个规律是总会出现THE ANSWER这类的字样。
+
+破出来是
+
+    ALL GOOD HACKERS CAN SOLVE BASIC CRYPTOGRAPHY. WHEN YOU FIND THE SOLUTION TO THIS TEXT,
+	YOU WILL BE ABLE TO GET THE ANSWER, WHICH IS ADUMBRATE.
+
+## Crypto\#Didactic XOR
+
+就让你把两个十六进制数xor一下的值对应的ASCII码输出。
+
+{% highlight ruby %}
+puts ("9f".to_i(16) ^ "c7".to_i(16)).chr
+{% endhighlight %}
+
 {% include JB/setup %}
