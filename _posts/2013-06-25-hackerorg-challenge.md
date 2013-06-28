@@ -102,4 +102,94 @@ puts [199, 77, 202].collect { |x| "%08d" % x.to_s(2).to_i }.join("").to_i(2)
 puts ("9f".to_i(16) ^ "c7".to_i(16)).chr
 {% endhighlight %}
 
+## Crypto\#Didactic Text
+
+给了一段话，提示你找出原文作对比。搜出来一篇Gettysburg Address。果然对比一下就发现答案了。
+
+## Crypto\#Didactic XOR Cipher
+
+    3d2e212b20226f3c2a2a2b
+
+告诉你每个单位都xor了79。把上面这个串分成两个一组，xor回去，再转成ASCII码就可以了。
+
+{% highlight ruby %}
+src = "3d 2e 21 2b 20 22 6f 3c 2a 2a 2b".split()
+
+des = src.collect do |x|
+  (x.to_i(16) ^ 79).chr
+end
+
+puts des.join("")
+{% endhighlight %}
+
+## Crypto\#Didactic XOR Cipher 2
+
+跟上面那个一样，只不过给了一个更长的串，而且没告诉你xor的值。统计之后发现81和c4都很多，猜测中间一个是e，因为有一说是英文中出现频率最高的字母是e。然后81果然对应的e。
+
+## Crypto\#Didactic XOR Cipher 3
+
+这个更凶残。每次xor的数是上一次xor的数加x模256。想了一下发现可以枚举前3个字符是什么，解决。
+
+{% highlight ruby %}
+lis = []
+("a".."z").each { |x| lis.push(x) }
+lis.push(" ")
+lis.push("'")
+
+lis.each do |a|
+  lis.each do |b|
+    lis.each do |c|
+      _a = a.ord ^ src[0]
+      _b = b.ord ^ src[1]
+      _c = c.ord ^ src[2]
+      d = ((_b - _a) % 256 + 256) % 256
+      if (_b + d) % 256 == _c
+        pwd, add = _a, d
+        chk = true
+        des = src.collect do |x|
+          y = x ^ pwd
+          pwd = (pwd + add) % 256
+          chk = false unless lis.include?(y.chr)
+          y.chr
+        end
+        puts des.join("") if chk
+      end
+    end
+  end
+end
+{% endhighlight %}
+
+## Crypto\#Didactic RGB
+
+给了个像素让你把RGB三个值按某种方式连起来。这里偷懒用的gimp直接看。
+
+{% highlight ruby %}
+puts [156, 84, 198].collect { |x| "%08d" % x.to_s(2).to_i }.join("").to_i(2)
+{% endhighlight %}
+
+## Crypto\#Didactic Red
+
+变成了四个像素。分别提取R值。虽然有个提示但是没用啊。继续用gimp。
+
+{% highlight ruby %}
+puts [222, 250, 206, 209].inject("") { |s, x| s + x.to_s(16) }
+{% endhighlight %}
+
+## Crypto\#Didactic Green
+
+这次有84个元素要提取G值。下载了一个ChunkyPNG库来用。把提取出来的值转成ASCII码就行了。
+
+{% highlight ruby %}
+require 'chunky_png'
+
+img = ChunkyPNG::Image.from_file("greenline.png")
+des = ""
+
+img.dimension.width.times.with_index do |i|
+  des += ChunkyPNG::Color.g(img[i, 0]).chr
+end
+
+puts des
+{% endhighlight %}
+
 {% include JB/setup %}
