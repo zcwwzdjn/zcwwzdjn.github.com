@@ -37,7 +37,7 @@ src = gets.split("")
 
 des = src.collect do |x|
   x.downcase!
-  if x >= "a" && x <= "z"
+  if x.between?("a", "z")
     x = ((x.ord - "a".ord + 13) % 26 + "a".ord).chr
   end
   x
