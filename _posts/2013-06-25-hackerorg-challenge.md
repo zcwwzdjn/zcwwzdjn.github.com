@@ -192,4 +192,59 @@ end
 puts des
 {% endhighlight %}
 
+## Crypto\#Didactic Bits
+
+给了一个很长的ab串。提示是让你看一下长度。发现是8的倍数。拆出来后用01替换再对应成ASCII码即可。
+
+{% highlight ruby %}
+des = []
+
+src.each_char.with_index do |c, i|
+  des.push("") if i % 8 == 0
+  des[-1] += c == "a" ? "0" : "1"
+end
+
+puts des.inject("") { |s, x| s + x.to_i(2).chr }
+{% endhighlight %}
+
+## Crypto\#Didactic Vampire Text
+
+给了一坨文字。发现基本上都是小写字母。然后把大写字母找出来拼起就可以了。
+
+{% highlight ruby %}
+File.open("text", "r") do |f|
+  src = f.readlines[0].split("")
+  puts src.select { |x| x.between?("A", "Z") }.join("")
+end
+{% endhighlight %}
+
+## Crypto\#Didactic Feedback Cipher
+
+还是2个一组的16进制码。加密方式是，除了第一个，每一个都xor了前一个密文。这种加密方式除了第一个确定不了其他都可以直接确定。
+
+{% highlight ruby %}
+src = "751a6f1d3d5c3241365321016c05620a7e5e34413246660461412e5a2e412c49254a24"
+des = []
+
+src.each_char.with_index do |c, i|
+  des.push("") if i % 2 == 0
+  des[-1] += c
+  des[-1] = des[-1].to_i(16) if i % 2 == 1
+end
+
+(1..(des.size - 1)).reverse_each do |i|
+  des[i] ^= des[i - 1]
+end
+
+puts des.inject("") { |s, x| s + x.chr }
+{% endhighlight %}
+
+## Crypto\#Didactic Text 2
+
+Google了一下，发现这些都来自圣经旧约，而且每一句出处还不同。果断搜出所有句子的来源，章节号+索引号，发现索引号都是1到26的数，弄成字母就好。
+
+{% highlight ruby %}
+puts src.inject("") { |s, x| s + (x + "a".ord - 1).chr }
+{% endhighlight %}
+
 {% include JB/setup %}
