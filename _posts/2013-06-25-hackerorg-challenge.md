@@ -247,4 +247,20 @@ Google了一下，发现这些都来自圣经旧约，而且每一句出处还�
 puts src.inject("") { |s, x| s + (x + "a".ord - 1).chr }
 {% endhighlight %}
 
+## Crypto\#Didactic Text Combo
+
+把文章中的大写字母提出来，得到`XBGRWICGDQICGRXBGDLRWG`。根据文本内容猜测是替换密码。字母频度统计发现`G`代表`E`，果断猜前缀是`THEANSWER`。最后有个字母得不出来，还跑去查词典……
+
+## Crypto\#Didactic XOR Long Cipher
+
+跟XOR Cipher 2类似，不过这次的密码从长度为1变成了长度为4。同样可以枚举前几个字符是什么，配合人脑还是很容易解决的。
+
+## Crypto\#Didactic Feedback Cipher 2
+
+比这个系列的上一道题目复杂了一些。不过因为变量还是很少的缘故，枚举第一个字符和题目中的`x`就可以了。
+
+## Crypto\#Didactic Feedback Cipher Long
+
+除了前4后，第i个都xor了第i-4个的密文。同理除了前4个确定不了其他都可以直接确定。
+
 {% include JB/setup %}
