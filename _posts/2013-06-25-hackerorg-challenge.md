@@ -361,4 +361,10 @@ int main() {
 }
 {% endhighlight %}
 
+## Crypto\#Didactic Feedback Cipher Long 3
+
+跟Cipher Long 2类似，不过这次的密钥是上一次的密文乘上m再加x，再模0x100000000。
+
+那么做法其实也是类似的。从低位开始枚举，即先枚举m和x的最低位，这样逐位暴力出m和x，那么除了前4个字母就都确定了。
+
 {% include JB/setup %}
