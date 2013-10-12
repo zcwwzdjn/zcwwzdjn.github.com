@@ -367,4 +367,24 @@ int main() {
 
 那么做法其实也是类似的。从低位开始枚举，即先枚举m和x的最低位，这样逐位暴力出m和x，那么除了前4个字母就都确定了。
 
+## Coding\#XOR Eval
+
+没啥好说的。
+
+## Coding\#A Little PHP
+
+虽说是PHP，但是可以直接看出代码在干什么，即使没学过。
+
+## Coding\#A Little Python
+
+跑代码。
+
+## Misc\#Type Faster
+
+就是个复制粘贴。但由于我网太烂试了好几次才过= =
+
+# Coding\#BCD
+
+二进制转十进制。
+
 {% include JB/setup %}
