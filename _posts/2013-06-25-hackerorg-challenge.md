@@ -383,8 +383,58 @@ int main() {
 
 就是个复制粘贴。但由于我网太烂试了好几次才过= =
 
-# Coding\#BCD
+## Coding\#BCD
 
 二进制转十进制。
+
+## Coding\#3280
+
+一段文章中出现频率最高的长度为9的单词。
+
+## Coding\#Delegates
+
+四则运算。
+
+## Crypto\#Ave
+
+做着做着Crypto就多了一道题。一坨字母。果断猜最后一句是the answer is发现居然是很久之前出现的轮换密码……
+
+## Crypto\#More Dastardly
+
+就给了个32位16进制串，果断猜MD5。google一下就知道了。
+
+## Coding\#Follow the Logic
+
+查看源代码……
+
+## Coding\#UpCount
+
+给了个java程序但是我跑不动……所以还是要看下代码在干什么。这个很简单。
+
+## Coding\#Bit Test
+
+{% highlight cpp %}
+bool testIt(int x) {
+    return (x & (x − 1)) == 0;
+}
+{% endhighlight %}
+
+回答这货检测什么样的数。提示：`blank of blank`
+
+## Web\#Visible Ink
+
+……
+
+## Web\#Common Comment
+
+……
+
+## Web\#Invisible Ink
+
+……（好冷）
+
+## Web\#A Few Percent
+
+十六进制……
 
 {% include JB/setup %}
