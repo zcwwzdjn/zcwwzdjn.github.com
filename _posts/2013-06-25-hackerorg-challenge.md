@@ -437,4 +437,21 @@ bool testIt(int x) {
 
 十六进制……
 
+## Web\#Don't Blink
+
+让你看一个名为one.php的网页，但是打开之后直接跳到了毫无价值的two.php。反正就是用一些工具获得one.php相关的信息。用wget就够了，不过参数要选一下……
+
+## Crypto\#CipherQuest A Warmup
+
+    tulgqBmqBvuqbdhpslBtuclBmpBjpBfuzclstBjgsCBuztBxhtjBmpBvpfgzepBjpBb
+    pctBdpgccqBehfk.BhBxpstBtuBjheBjuzepBgsqxgqBtuBezdodhepBjhmBxhtjBju
+    mpmglpBeuzo.BhBxgckBhsBtuBjheBduumBuscqBtuBbhslBjhmBjuukhsCBzoBxhtj
+    BmqBehetpd.BejpBfgstBldhap.BuzdBmumBlduapBjpdBtjpdp.Bbmc
+
+看着就不科学……替换密码嘛，就是一通乱猜。首先可以看出B替代了空格，然后做字母频度统计，猜p应该替代了e。然后从短单词入手慢慢推，感觉不对多试几次就好。确定t、i、r分别由什么代替之后就很容易了。
+
+## Misc\#Imagine all the Silicon
+
+……（不知道有啥意思）
+
 {% include JB/setup %}
