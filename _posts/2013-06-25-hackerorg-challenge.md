@@ -454,4 +454,26 @@ bool testIt(int x) {
 
 ……（不知道有啥意思）
 
+## Misc\#File Mystery
+
+给了一个不知所云的bin文件……联想一下改一下后缀名就可以解决了……
+
+## Misc\#Counting
+
+求字符串长度……
+
+## Misc\#Type Fast
+
+之前是有个Type Faster么……总觉得我做题的拓扑序不对……
+
+## Misc\#Rabbits Everywhere
+
+求第10个到第17个Fibonacci数……额……
+
+## Misc\#Basic
+
+{% highlight ruby %}
+28679718602997181072337614380936720482949.to_s(7)
+{% endhighlight %}
+
 {% include JB/setup %}
