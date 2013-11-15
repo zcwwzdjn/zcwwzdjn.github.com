@@ -96,7 +96,7 @@ $ rails g active_admin:install
 $ mv app/assets/stylesheets/active_admin.css.scss vendor/assets/stylesheets/
 {% endhighlight %}
 
-这么搞的原因是`activeadmin`的css会和bootstrap冲突……
+这么搞的原因是`activeadmin`的css在普通的页面中也能用到，这个就不是很爽了……
 
 然后在migration里面把`t.timestamps`注释掉。最好把创建comment的那个migration删掉。还得修改一下`activeadmin`的initializer。把comment给disable掉就好。
 
@@ -139,6 +139,12 @@ $ rake db:migrate
 {% endhighlight %}
 
 在migrate之前把posts_tags这个model里面的timestamps去掉，注意要加上`id: false`。migrate后把`posts_tags.rb`这个文件删掉。当然高兴的话把所有和这个有关的文件也是可以的。果然最简单的方法还是自己写个migration……
+
+在`category.rb`里面加上
+
+{% highlight ruby %}
+has_many :posts
+{% endhighlight %}
 
 在`post.rb`里面加上
 
