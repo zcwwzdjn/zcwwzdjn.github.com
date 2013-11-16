@@ -240,10 +240,19 @@ end
 
 {% highlight ruby %}
 module ArgvValidator
-  def validates_title_slug
+  def validates_title
     validates :title, presence: true
+  end
+
+  def validates_slug
     validates :slug,  presence: true, format: { with: /\A[a-zA-Z0-9_-]+\Z/, 
-      message: 'only letters, numbers, underscore and dash allowed' }
+      message: 'only letters, numbers, underscore and dash allowed' },
+      uniqueness: true
+  end
+
+  def validates_title_slug
+    validates_title
+    validates_slug
   end
 end
 {% endhighlight %}
@@ -256,5 +265,80 @@ validates_title_slug
 {% endhighlight %}
 
 模块差不多到这里就可以了……但是写博文纯文本怎么能行呢（虽然可以直接手写HTML）……为了代码高亮、插入图片或者什么的，我想还是弄个`markdown`来处理博文～
+
+{% highlight bash %}
+gem 'redcarpet'
+gem 'pygmentize'
+gem 'carrierwave'
+{% endhighlight %}
+
+以上三个gem分别处理markdown的解析、代码高亮和图片上传。
+
+{% highlight ruby %}
+$ rails g model image file:string slug:string
+$ rake db:migrate
+$ rails g uploader image
+$ rails g active_admin:resource image
+{% endhighlight %}
+
+没想到什么好的方法……暂且把图片单独拿出来做个model。添加
+
+{% highlight ruby %}
+mount_uploader :image, ImageUploader
+{% endhighlight %}
+
+然后改一下admin界面
+
+{% highlight ruby %}
+form do |f|
+  f.inputs 'Details' do
+    f.input :file, as: :file
+    f.input :slug
+  end
+end
+{% endhighlight %}
+
+在`public`文件夹下新建一个`uploads`，有什么问题的话设置一下这个文件夹的权限就好。
+
+最后来处理post的content
+
+{% highlight bash %}
+$ rails g migration AddRenderedContentToPosts rendered_content:text
+{% endhighlight %}
+
+改一下post的model，在保存之前把markdown解析成HTML
+
+{% highlight ruby %}
+before_save :render_body
+
+private
+
+def render_body
+  require 'redcarpet'
+
+  renderer = MyRenderHTML.new
+  extensions = { fenced_code_blocks: true }
+  redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+
+  self.rendered_content = redcarpet.render self.content
+end
+{% endhighlight %}
+
+其中`MyRenderHTML`是
+
+{% highlight ruby %}
+class MyRenderHTML < Redcarpet::Render::HTML
+  def block_code(code, language)
+    require 'pygmentize'
+    Pygmentize.process(code, language)
+  end
+
+  def image(link, title, alt_text)
+    "<img src=\"#{Image.where( slug: link).first.file_url.to_s}\" alt=\"#{alt_text}\" />"
+  end
+end
+{% endhighlight %}
+
+## 前端
 
 {% include JB/setup %}
