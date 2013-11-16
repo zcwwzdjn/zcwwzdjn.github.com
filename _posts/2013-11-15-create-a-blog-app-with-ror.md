@@ -215,6 +215,27 @@ form do |f|
 end
 {% endhighlight %}
 
+顺便把dashboard也改改
+
+{% highlight ruby %}
+columns do
+  column do
+    panel 'Recent Posts' do
+      table_for Post.order('created_at desc').limit(5) do
+        column(:title) { |post| link_to(post.title, admin_post_path(post)) }
+        column :created_at
+      end
+    end
+  end
+
+  column do
+    panel 'Info' do
+      para 'Welcome to ActiveAdmin.'
+    end
+  end
+end
+{% endhighlight %}
+
 现在再来给model添加一些限制。比如slug仅由字母数字等组成之类的……在model里面新建一个`argv_validator.rb`
 
 {% highlight ruby %}
@@ -233,5 +254,7 @@ end
 extend ArgvValidator
 validates_title_slug
 {% endhighlight %}
+
+模块差不多到这里就可以了……但是写博文纯文本怎么能行呢（虽然可以直接手写HTML）……为了代码高亮、插入图片或者什么的，我想还是弄个`markdown`来处理博文～
 
 {% include JB/setup %}
