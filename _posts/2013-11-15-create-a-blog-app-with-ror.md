@@ -138,7 +138,7 @@ $ rails g model posts_tags post:belongs_to tag:belongs_to
 $ rake db:migrate
 {% endhighlight %}
 
-在migrate之前把posts_tags这个model里面的timestamps去掉，注意要加上`id: false`。migrate后把`posts_tags.rb`这个文件删掉。当然高兴的话把所有和这个有关的文件也是可以的。果然最简单的方法还是自己写个migration……
+在migrate之前把posts_tags这个model里面的timestamps去掉，注意要加上`id: false`。migrate后把`posts_tags.rb`这个文件删掉。当然高兴的话把所有和这个有关的文件都删掉也是可以的。果然最简单的方法还是自己写个migration……
 
 在`category.rb`里面加上
 
