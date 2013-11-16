@@ -341,4 +341,58 @@ end
 
 ## 前端
 
+{% highlight bash %}
+$ rails g controller posts index show
+$ rails g controller categories index
+$ rails g controller tags index
+{% endhighlight %}
+
+修改routes
+
+{% highlight ruby %}
+get 'posts' => 'posts#index', as: 'posts'
+get 'posts/:id' => 'posts#show', as: 'post'
+
+get 'categories' => 'categories#index', as: 'categories'
+
+get 'tags' => 'tags#index', as: 'tags'
+{% endhighlight %}
+
+然后给每个页面加东西就好……
+
+为了方便处理标题，在title里面可以写
+
+{% highlight ruby %}
+yield(:title)
+{% endhighlight %}
+
+然后其他每个view里面，可以这么搞
+
+{% highlight ruby %}
+provide(:title, 'Contact')
+{% endhighlight %}
+
+最后为了显示post的时候url友好一点，再捣鼓一下
+
+{% highlight bash %}
+gem 'friendly_id', github: 'FriendlyId/friendly_id'
+{% endhighlight %}
+
+在post的model里面写
+
+{% highlight ruby %}
+extend FriendlyId
+friendly_id :slug
+{% endhighlight %}
+
+不过要各种改controller。以admin为例，就要改改
+
+{% highlight ruby %}
+controller do
+  def show
+    @post = Post.friendly.find(params[:id])
+  end
+end
+{% endhighlight %}
+
 {% include JB/setup %}
