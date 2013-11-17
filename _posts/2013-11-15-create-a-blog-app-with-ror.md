@@ -389,10 +389,62 @@ friendly_id :slug
 
 {% highlight ruby %}
 controller do
-  def show
+  before_action :set_post, only: [ :show, :edit, :update, :destroy ]
+  
+  private
+
+  def set_post
     @post = Post.friendly.find(params[:id])
   end
 end
 {% endhighlight %}
+
+## 美化
+
+这个没什么好说的。比如可以利用`bootstrap`非常快速的做一个出来。
+
+## 发布
+
+试着把东西弄到`Heroku`上。
+
+{% highlight bash %}
+$ wget -qO- https://toolbelt.heroku.com/install-ubuntu.sh | sh
+$ heroku login
+$ git init
+$ git add .
+$ git commit -am 'first commit'
+$ heroku create
+$ heroku apps:rename zcwwzdjn-demo-blog
+$ heroku labs:enable user-env-compile
+{% endhighlight %}
+
+这时先别慌着push。改`config/application.rb`
+
+{% highlight ruby %}
+config.assets.initialize_on_precompile = false
+{% endhighlight %}
+
+还得改`config/environments/production.rb`
+
+{% highlight ruby %}
+config.assets.compile = true
+{% endhighlight %}
+
+注意修改一下`Gemfile`，之前我们不是改了源么= =得把它改回去。似乎在国外连淘宝很困难……
+
+{% highlight bash %}
+source 'https://rubygems.org'
+ruby '2.0.0'
+{% endhighlight %}
+
+然后就可以push了
+
+{% highlight bash %}
+$ heroku keys:add ~/.ssh/id_rsa.pub
+$ git push heroku master
+$ heroku run rake db:migrate
+{% endhighlight %}
+
+于是`zcwwzdjn-demo-blog.herokuapp.com`诞生了。
 
 {% include JB/setup %}
