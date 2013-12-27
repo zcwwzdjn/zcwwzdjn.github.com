@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Index
+title: Running and Judging
 tagline: Supporting tagline
 ---
 {% include JB/setup %}

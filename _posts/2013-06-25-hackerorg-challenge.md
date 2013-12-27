@@ -2,7 +2,7 @@
 layout: post
 title: "HACKER.ORG Challenge"
 description: ""
-category: Geek 
+category: 自娱自乐 
 tags: []
 ---
 
